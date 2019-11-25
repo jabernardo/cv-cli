@@ -1,14 +1,16 @@
+import Projects from "./projects.js";
+
 class CV {
   constructor() {
-    this.HomeMessage = `
-    ____
-  < Hello >
-    -----
-           \\   ^__^ 
-            \\  (oo)\\_______
-               (__)\\       )\\/\\
-                   ||----w |
-                   ||     ||
+    this.HomeMessage = `                                       
+e   e  e eeee e     eeee eeeee eeeeeee eeee 
+8   8  8 8    8     8  8 8  88 8  8  8 8    
+8e  8  8 8eee 8e    8e   8   8 8e 8  8 8eee 
+88  8  8 88   88    88   8   8 88 8  8 88   
+88ee8ee8 88ee 88eee 88e8 8eee8 88 8  8 88ee 
+
+Hi there! I'm John Aldrich Bernardo ✋😁
+Just type "help" for the list of commands 🤟
   `;
 
     this.Commands = {
@@ -49,7 +51,29 @@ class CV {
 🏅 Departmental Awardee
   - 📅 Computer Science Department \`Batch 2015, March 2015
   - 🏬 College of Mary Immaculate
-      `
+      `,
+
+      contact: `
+## Know where to contact me ##
+Hey! Just e-mail me at 📨 4ldrich@protonmail.com. Have a good day! 
+`,
+
+      projects(use_descriptions = false) {
+        if (use_descriptions) return `## My Personal projects ##`;
+        var screen = "";
+
+        const proj = new Projects();
+        this.Projects = proj.get();
+
+        this.Projects.forEach(data => {
+          screen += `
+🐣 ${data.name} (${data.html_url})
+  - ${data.description}
+`;
+        });
+
+        return screen;
+      }
     };
   }
 
@@ -58,8 +82,16 @@ class CV {
   }
 
   getInfo(keyword) {
-    if (typeof this.Commands[keyword] !== "undefined") {
+    if (
+      typeof this.Commands[keyword] !== "undefined" &&
+      typeof this.Commands[keyword] === "string"
+    ) {
       return this.Commands[keyword].replace(/##(.*)##/g, "").trim();
+    } else if (
+      typeof this.Commands[keyword] !== "undefined" &&
+      typeof this.Commands[keyword] === "function"
+    ) {
+      return this.Commands[keyword]();
     }
 
     return null;
@@ -70,7 +102,10 @@ class CV {
 
     Object.keys(this.Commands).forEach(cmd => {
       var preview = "";
-      var tokens = this.Commands[cmd].match(/##(.*)##/g);
+      var tokens =
+        typeof this.Commands[cmd] === "function"
+          ? this.Commands[cmd](true).match(/##(.*)##/g)
+          : this.Commands[cmd].match(/##(.*)##/g);
 
       // console.log(typeof tokens);
       if (tokens != null) {

@@ -10,29 +10,35 @@ const $ = (window.$ = window.jQuery = terminal(this, jquery));
 
 $(function($) {
   const cv = new CV();
-  const term = $("#app").terminal(function(command, term) {
-    var msg = "";
+  const term = $("#app").terminal(
+    function(command, term) {
+      var msg = "";
 
-    switch (command.toLowerCase()) {
-      case "help":
-      case "ls":
-      case "ll":
-        msg = cv.getHelp();
-        break;
-      default:
-        var results = cv.getInfo(command);
+      switch (command.toLowerCase()) {
+        case "help":
+        case "ls":
+        case "ll":
+          msg = cv.getHelp();
+          break;
+        default:
+          var results = cv.getInfo(command);
 
-        if (results !== null) {
-          msg = results;
-        } else if (command.length > 0) {
-          msg = `[[;red;]Command "${command}" not found.`;
-        }
+          if (results !== null) {
+            msg = results;
+          } else if (command.length > 0) {
+            msg = `[[;red;]Command "${command}" not found.`;
+          }
 
-        break;
+          break;
+      }
+
+      return msg;
+    },
+    {
+      autocompleteMenu: true,
+      completion: Object.keys(cv.Commands)
     }
-
-    return msg;
-  });
+  );
 
   term.clear();
   term.echo(cv.getHomeScreen());
