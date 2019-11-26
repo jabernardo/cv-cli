@@ -5,6 +5,10 @@ const $ = (window.$ = window.jQuery = terminal(this, jquery));
 
 class Projects {
   get() {
+    if (typeof window._jabernardo_term_projects == "object") {
+      return window._jabernardo_term_projects;
+    }
+
     var resp = null;
 
     $.ajax({
@@ -15,6 +19,8 @@ class Projects {
         resp = data;
       }
     });
+
+    window._jabernardo_term_projects = resp;
 
     return resp;
   }

@@ -63,9 +63,8 @@ Hey! Just e-mail me at 📨 4ldrich@protonmail.com. Have a good day!
         var screen = "";
 
         const proj = new Projects();
-        this.Projects = proj.get();
 
-        this.Projects.forEach(data => {
+        proj.get().forEach(data => {
           screen += `
 🐣 ${data.name} (${data.html_url})
   - ${data.description}

@@ -12,6 +12,7 @@ $(function($) {
   const cv = new CV();
   const term = $("#app").terminal(
     function(command, term) {
+      term.pause();
       var msg = "";
 
       switch (command.toLowerCase()) {
@@ -31,6 +32,8 @@ $(function($) {
 
           break;
       }
+
+      term.resume();
 
       return msg;
     },
