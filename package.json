@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
-	"homepage": "https://jabernardo.github.io/cv-cli",
+	"homepage": "https://jabernardo.github.io/cv-cli/",
   "scripts": {
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build",
     "start": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html --out-dir build"
   },
   "dependencies": {
     "jquery": "3.4.1",
