@@ -3,13 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.html",
+	"homepage": "https://jabernardo.github.io/cv-cli",
   "scripts": {
+		"predeploy": "npm run build",
+		"deploy": "gh-pages -d build",
     "start": "parcel index.html --open",
     "build": "parcel build index.html"
   },
   "dependencies": {
     "jquery": "3.4.1",
-    "jquery.terminal": "2.8.0"
+    "jquery.terminal": "2.8.0",
+		"gh-pages": "2.1.1"
   },
   "devDependencies": {
     "@babel/core": "7.2.0",
