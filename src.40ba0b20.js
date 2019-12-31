@@ -39,4 +39,4 @@ var global=arguments[3],define,process=require("process");!function(e){var n=fun
 },{"./projects.js":"uQAv"}],"H99C":[function(require,module,exports) {
 "use strict";require("./styles.css"),require("jquery.terminal/css/jquery.terminal.css");var e=r(require("./cv.js"));function r(e){return e&&e.__esModule?e:{default:e}}var n=require("jquery"),t=require("jquery.terminal"),a=window.$=window.jQuery=t(void 0,n);a(function(r){var n=new e.default,t=r("#app").terminal(function(e,r){r.pause();var t="";switch(e.toLowerCase()){case"help":case"ls":case"ll":t=n.getHelp();break;case"home":window.location="/";break;default:var a=n.getInfo(e);null!==a?t=a:e.length>0&&(t='[[;red;]Command "'.concat(e,'" not found.'))}return r.resume(),t+(t.length?"\n":"")},{autocompleteMenu:!0,completion:Object.keys(n.Commands)});t.clear(),t.echo(n.getHomeScreen())});
 },{"./styles.css":"D9Nj","jquery.terminal/css/jquery.terminal.css":"D9Nj","./cv.js":"PHcj","jquery":"HlZQ","jquery.terminal":"Wtxj"}]},{},["H99C"], null)
-//# sourceMappingURL=/cv-cli/src.40ba0b20.js.map
+//# sourceMappingURL=https://jabernardo.github.io/cv-cli/src.40ba0b20.js.map
