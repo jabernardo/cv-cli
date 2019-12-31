@@ -3,22 +3,23 @@ import Projects from "./projects.js";
 class CV {
   constructor() {
     this.HomeMessage = `                                       
-e   e  e eeee e     eeee eeeee eeeeeee eeee 
+[[;green;]e   e  e eeee e     eeee eeeee eeeeeee eeee 
 8   8  8 8    8     8  8 8  88 8  8  8 8    
 8e  8  8 8eee 8e    8e   8   8 8e 8  8 8eee 
 88  8  8 88   88    88   8   8 88 8  8 88   
 88ee8ee8 88ee 88eee 88e8 8eee8 88 8  8 88ee 
 
-Hi there! I'm John Aldrich Bernardo ✋😁
+[[;yellow;]Hi there! I'm John Aldrich Bernardo ✋😁
 Just type "help" for the list of commands 🤟
+[[;gray;]
   `;
 
     this.Commands = {
       education: `
 ## View my educational background ##
 
-🎓 Bachelor of Science in Computer Science
-  - 📅 2011-2015
+🎓 [[;green;]Bachelor of Science in Computer Science
+[[;gray;] - 📅 2011-2015
   - 🏬 College of Mary Immaculate
   - 📍 Pandi, Bulacan
       `,
@@ -26,13 +27,13 @@ Just type "help" for the list of commands 🤟
       work: `
 ## Know where I work ##
 
-💼 U.S. Auto Parts Network (Philippines) Corp.
-  - 💻 Associate Lead-Developer
+💼 [[;green;]U.S. Auto Parts Network (Philippines) Corp.
+[[;gray;]  - 💻 Associate Lead-Developer
   - 📅 2015-Present
   - 📍 Mandaluyong, Metro Manila
 
-💼 Bachelor of Science in Computer Science
-  - 💻 Part-time Instructor
+💼 [[;green;] Bachelor of Science in Computer Science
+[[;gray;]  - 💻 Part-time Instructor
   - 📅 2019-Present
   - 🏬 College of Mary Immaculate
   - 📍 Pandi, Bulacan
@@ -40,18 +41,22 @@ Just type "help" for the list of commands 🤟
 
       awards: `
 ## Some awards ##
-🏆 Mr. Programmer
-  - 📅 Computer Science Day 2015
+🏆 [[;green;] Mr. Programmer
+[[;gray;]  - 📅 Computer Science Day 2015
   - 🏬 College of Mary Immaculate
 
-🏆 I.T. Genius Award
-  - 📅 Computer Science Day 2015
+🏆 [[;green;] I.T. Genius Award
+[[;gray;]  - 📅 Computer Science Day 2015
   - 🏬 College of Mary Immaculate
 
-🏅 Departmental Awardee
-  - 📅 Computer Science Department \`Batch 2015, March 2015
+🏅 [[;green;] Departmental Awardee
+[[;gray;]  - 📅 Computer Science Department \`Batch 2015, March 2015
   - 🏬 College of Mary Immaculate
       `,
+
+      home: `
+## To infinity and beyond! ##
+`,
 
       contact: `
 ## Know where to contact me ##
@@ -66,7 +71,7 @@ Hey! Just e-mail me at 📨 4ldrich@protonmail.com. Have a good day!
 
         proj.get().forEach(data => {
           screen += `
-🐣 ${data.name} (${data.html_url})
+🐣 [[;green;]${data.name}[[;gray;] ([[;blue;]${data.html_url}[[;gray;])
   - ${data.description}
 `;
         });
@@ -114,7 +119,7 @@ Hey! Just e-mail me at 📨 4ldrich@protonmail.com. Have a good day!
           .trim();
       }
 
-      help += `\t${cmd.padEnd(15)}${preview}\n`;
+      help += `\t[[;yellow;]${cmd.padEnd(15)}[[;gray;]${preview}\n`;
     });
 
     return help;

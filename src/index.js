@@ -21,6 +21,9 @@ $(function($) {
         case "ll":
           msg = cv.getHelp();
           break;
+        case "home":
+          window.location = "/";
+          break;
         default:
           var results = cv.getInfo(command);
 
@@ -35,7 +38,7 @@ $(function($) {
 
       term.resume();
 
-      return msg;
+      return msg + (msg.length ? "\n" : "");
     },
     {
       autocompleteMenu: true,
