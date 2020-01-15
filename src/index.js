@@ -22,6 +22,7 @@ $(function($) {
           msg = cv.getHelp();
           break;
         case "home":
+	case "exit":
           window.location = "/";
           break;
         default:
